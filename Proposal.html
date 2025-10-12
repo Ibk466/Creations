@@ -1,40 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="viewport" content="width=device-width" />
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>WordPress &#8250; ReadMe</title>
-	<link rel="stylesheet" href="wp-admin/css/install.css?ver=20100228" type="text/css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Marry Me?</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #fff;
+      text-shadow: 0 0 10px #ff6b81;
+      margin-bottom: 50px;
+    }
+
+    .btn {
+      font-size: 1.5rem;
+      padding: 10px 30px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 10px;
+    }
+
+    .yes {
+      background-color: #4CAF50;
+      color: white;
+      box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+    }
+
+    .no {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+      transition: top 0.3s, left 0.3s;
+      box-shadow: 0 0 15px rgba(244, 67, 54, 0.6);
+    }
+
+    .message {
+      font-size: 2rem;
+      color: #fff;
+      margin-top: 30px;
+      text-shadow: 0 0 10px #fff;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
 </head>
 <body>
-<h1 id="logo">
-	<a href="https://wordpress.org/"><img alt="WordPress" src="wp-admin/images/wordpress-logo.png" /></a>
-</h1>
-<p style="text-align: center">Semantic Personal Publishing Platform</p>
 
-<h2>First Things First</h2>
-<p>Welcome. WordPress is a very special project to me. Every developer and contributor adds something unique to the mix, and together we create something beautiful that I am proud to be a part of. Thousands of hours have gone into WordPress, and we are dedicated to making it better every day. Thank you for making it part of your world.</p>
-<p style="text-align: right">&#8212; Matt Mullenweg</p>
+  <h1>Will you marry me? 💍</h1>
+  <div class="buttons">
+    <button class="btn yes" id="yesBtn">Yes</button>
+    <button class="btn no" id="noBtn">No</button>
+  </div>
+  <div id="message" class="message"></div>
 
-<h2>Installation: Famous 5-minute install</h2>
-<ol>
-	<li>Unzip the package in an empty directory and upload everything.</li>
-	<li>Open <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> in your browser. It will take you through the process to set up a <code>wp-config.php</code> file with your database connection details.
-		<ol>
-			<li>If for some reason this does not work, do not worry. It may not work on all web hosts. Open up <code>wp-config-sample.php</code> with a text editor like WordPad or similar and fill in your database connection details.</li>
-			<li>Save the file as <code>wp-config.php</code> and upload it.</li>
-			<li>Open <span class="file"><a href="wp-admin/install.php">wp-admin/install.php</a></span> in your browser.</li>
-		</ol>
-	</li>
-	<li>Once the configuration file is set up, the installer will set up the tables needed for your site. If there is an error, double check your <code>wp-config.php</code> file, and try again. If it fails again, please go to the <a href="https://wordpress.org/support/forums/">WordPress support forums</a> with as much data as you can gather.</li>
-	<li><strong>If you did not enter a password, note the password given to you.</strong> If you did not provide a username, it will be <code>admin</code>.</li>
-	<li>The installer should then send you to the <a href="wp-login.php">login page</a>. Sign in with the username and password you chose during the installation. If a password was generated for you, you can then click on &#8220;Profile&#8221; to change the password.</li>
-</ol>
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const message = document.getElementById('message');
 
-<h2>Updating</h2>
-<h3>Using the Automatic Updater</h3>
-<ol>
-	<li>Open <span class="file"><a href="wp-admin/update-core.php">wp-admin/update-core.php</a></span> in your browser and follow the instructions.</li>
+    yesBtn.addEventListener('click', () => {
+      message.textContent = "I knew you will pick yes 😜";
+    });
+
+    noBtn.addEventListener('click', () => {
+      // Get random position
+      const x = Math.random() * (window.innerWidth - noBtn.clientWidth);
+      const y = Math.random() * (window.innerHeight - noBtn.clientHeight);
+      
+      // Move button to new position
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+  </script>
+
+</body>
+</html>	<li>Open <span class="file"><a href="wp-admin/update-core.php">wp-admin/update-core.php</a></span> in your browser and follow the instructions.</li>
 	<li>You wanted more, perhaps? That&#8217;s it!</li>
 </ol>
 
